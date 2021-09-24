@@ -1,0 +1,8 @@
+.info-column {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 550px;
+    margin-top: 22px;
+}
