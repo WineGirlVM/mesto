@@ -13,3 +13,19 @@
 .add-button:hover {
     opacity: 0.6;
 }
+
+@media screen and (max-width: 890px) {
+    .add-button {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 646px) {
+    .add-button {
+        width: 282px;
+        align-self: flex-end;
+        background-image: url(../../images/Add\ Button2.png);
+        margin: 0 auto;
+        margin-top: 36px;
+    }
+}

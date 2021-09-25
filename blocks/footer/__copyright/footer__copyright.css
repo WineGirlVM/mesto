@@ -6,3 +6,16 @@
     font-size: 18px;
     line-height: 22px;
 }
+
+@media screen and (max-width: 890px) {
+    .footer__copyright {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .footer__copyright {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

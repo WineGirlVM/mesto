@@ -5,3 +5,15 @@
     height: 120px;
     border-radius: 50%;
 }
+
+@media screen and (max-width: 890px) {
+    .profile__avatar {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 646px) {
+    .profile__avatar {
+        margin: 0 auto;
+    }
+}
