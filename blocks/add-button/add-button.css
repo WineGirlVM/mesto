@@ -20,7 +20,7 @@
     }
 }
 
-@media screen and (max-width: 646px) {
+@media screen and (max-width: 650px) {
     .add-button {
         width: 282px;
         align-self: flex-end;

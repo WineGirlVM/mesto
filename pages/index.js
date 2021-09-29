@@ -20,10 +20,19 @@ let inputAbout = popup.querySelector('.popup__input-about');
 let profileName = profile.querySelector('.profile__name');
 let profileAbout = profile.querySelector('.profile__about');
 
-function changeName() {
+inputName.setAttribute('placeholder', profileName.textContent);
+inputAbout.setAttribute('placeholder', profileAbout.textContent);
 
+let popupContainer = popup.querySelector('.popup__container');
+let popupButton = popup.querySelector('.popup__button');
+
+
+function popupSubmitHandler (evt) {
+    evt.preventDefault();
+    profileName.textContent = inputName.value;
+    profileAbout.textContent = inputAbout.value;
 }
 
-function changeAbout() {
-    
-}
+popupContainer.addEventListener('submit', popupSubmitHandler);
+popupButton.addEventListener('click', popupSubmitHandler);
+popupButton.addEventListener('click', closePopup);
