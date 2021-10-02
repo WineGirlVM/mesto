@@ -1,4 +1,4 @@
-.info-column {
+.profile__info-column {
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,13 +8,13 @@
 }
 
 @media screen and (max-width: 880px) {
-    .info-column {
+    .profile__info-column {
         padding-right: 0;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .info-column {
+    .profile__info-column {
         margin: 0 auto;
         margin-top: 26px;
         min-width: 282px;

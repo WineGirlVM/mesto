@@ -1,30 +1,30 @@
-.add-button {
+.profile__add-button {
     width: 150px;
     height: 50px;
     margin: 0;
     padding: 0;
-    background-image: url(../../images/Add\ Button.png);
+    background-image: url(../../../images/Add\ Button.svg);
     background-color: black;
     border: 0;
     align-self: center;
     border-radius: 2px;
 }
 
-.add-button:hover {
+.profile__add-button:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 890px) {
-    .add-button {
+    .profile__add-button {
         margin-right: 10px;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .add-button {
+    .profile__add-button {
         width: 282px;
         align-self: flex-end;
-        background-image: url(../../images/Add\ Button2.png);
+        background-image: url(../../../images/Add\ Button2.svg);
         margin: 0 auto;
         margin-top: 36px;
     }
