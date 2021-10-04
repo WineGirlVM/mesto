@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     background-image: url(../../../images/Edit\ Button.svg);
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     border: 0;
     margin-left: 18px;
     margin-top: 15px;
