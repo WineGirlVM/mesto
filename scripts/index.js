@@ -9,29 +9,29 @@ let inputAbout = popupForm.querySelector('.popup__input_info_about');
 let profileName = profile.querySelector('.profile__name');
 let profileAbout = profile.querySelector('.profile__about');
 
-
 function openPopup() {
-    popup.classList.add('popup_display');
-    inputName.setAttribute('placeholder', profileName.textContent);
-    inputAbout.setAttribute('placeholder', profileAbout.textContent);
-    editButton.classList.add('profile__edit-button_active');
+    popup.classList.add('popup_opened');
+    inputName.value = profileName.textContent;
+    inputAbout.value = profileAbout.textContent;
 }
 
+/*вернуть добавление атрибута,
+удобнее для пользователя.
+inputName.setAttribute('placeholder', profileName.textContent);*/
+
 function closePopup() {
-    popup.classList.remove('popup_display');
-    editButton.classList.remove('profile__edit-button_active');
+    popup.classList.remove('popup_opened');
 }
 
 function popupSubmitHandler (evt) {
     evt.preventDefault();
-    if (inputName.value.length > 0) {
-        profileName.textContent = inputName.value;
-    };
-    if (inputAbout.value.length >0) {
-        profileAbout.textContent = inputAbout.value;
-    };
+    profileName.textContent = inputName.value;
+    profileAbout.textContent = inputAbout.value;
     closePopup();
 }
+/*потом вернуть условия в функцию, 
+при случайном нажатии на сохранить не возвращает пустые поля. 
+if (inputName.value.length > 0)*/
 
 popupForm.addEventListener('submit', popupSubmitHandler);
 editButton.addEventListener('click', openPopup);
