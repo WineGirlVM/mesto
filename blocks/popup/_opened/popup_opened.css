@@ -1,8 +1,8 @@
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes fadein {
     from { opacity: 0; }
       to { opacity: 1; }
 }
-@keyframes fadeIn {
+@keyframes fadein {
     from { opacity: 0; }
       to { opacity: 1; }
 }
@@ -10,6 +10,6 @@
 .popup_opened {
     display: flex;
     z-index: 1;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+    -webkit-animation: fadein 1s;
+    animation: fadein 1s;
 }
