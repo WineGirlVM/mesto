@@ -101,8 +101,6 @@ function openImagePopup(data) {
   popupCardImage.querySelector('.popup__title').textContent = data.name;
   popupCardImage.querySelector('.popup__image').src = data.link;
   popupCardImage.querySelector('.popup__image').alt = data.name;
-  popupCardImage.querySelector('.popup__container').classList.add('popup__container_image-open');
-  popupCardImage.querySelector('.popup__title').classList.add('popup__title_image-open');
   openPopup(popupCardImage);
 }
 
