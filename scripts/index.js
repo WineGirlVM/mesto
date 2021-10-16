@@ -115,7 +115,9 @@ editButton.addEventListener('click', function() {
 popupFormCard.addEventListener('submit', popupSubmitCard);
 
 addButton.addEventListener('click', function() {
+    toggleButtonState(buttonElement);
     openPopup(popupCard);
+    
 });
 
 popupIconProfile.addEventListener('click', function() {
