@@ -16,10 +16,10 @@
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form class="popup__form popup__form_profile" name="SubmitForm" novalidate>
                         <input type="text" class="popup__input popup__input_info_name" id="name-input"  placeholder="" name="Name" required minlength="2" maxlength="40">
-                        <span class="name-input-error"></span>
+                        <span class="popup__input-error name-input-error"></span>
                         <input type="text" class="popup__input popup__input_info_about" id="about-input" placeholder="" name="About" required minlength="2" maxlength="200">
-                        <span class="about-input-error"></span>
-                        <button class="popup__button" type="submit" disabled>Сохранить</button>
+                        <span class="popup__input-error about-input-error"></span>
+                        <button class="popup__button" type="submit">Сохранить</button>
                     </form>
                     <button class="popup__icon popup__icon_profile" type="button"></button>
                 </div>
@@ -28,11 +28,11 @@
                 <div class="popup__container">
                     <h2 class="popup__title">Новое место</h2>
                     <form class="popup__form popup__form_card" name="SubmitForm" novalidate>
-                        <input type="text" class="popup__input popup__input_info_name-card" id="card-name-error" placeholder="Название" name="Name" required minlength="2" maxlength="30">
-                        <span class="card-name-error"></span>
-                        <input type="url" class="popup__input popup__input_info_link" id="url-error" placeholder="Ссылка на картинку" name="About" required>
-                        <span class="url-error"></span>
-                        <button class="popup__button" type="submit" disabled>Сохранить</button>
+                        <input type="text" class="popup__input popup__input_info_name-card" id="card-name" placeholder="Название" name="Name"  required minlength="2" maxlength="30" autocomplete="off">
+                        <span class="popup__input-error card-name-error"></span>
+                        <input type="url" class="popup__input popup__input_info_link" id="url" placeholder="Ссылка на картинку" name="About" required>
+                        <span class="popup__input-error url-error"></span>
+                        <button class="popup__button" type="submit">Сохранить</button>
                     </form>
                     <button class="popup__icon popup__icon_card" type="button"></button>
                 </div>
