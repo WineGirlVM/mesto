@@ -19,6 +19,8 @@ const inputName = popupFormProfile.querySelector('.popup__input_info_name');
 const inputAbout = popupFormProfile.querySelector('.popup__input_info_about');
 const inputNameCard = popupFormCard.querySelector('.popup__input_info_name-card');
 const inputImage = popupFormCard.querySelector('.popup__input_info_link');
+const popupImage = popupCardImage.querySelector('.popup__image');
+const popupTitle = popupCardImage.querySelector('.popup__title');
 
 const initialCards = [
     {
@@ -67,47 +69,47 @@ function createCard(data) {
   return element;
 }
 
-function closeEsc (evt) {
+function closeEsc (evt) { //закрытие на кнопку
     if (evt.key === 'Escape') {
-      closePopup(popupProfile);
-      closePopup(popupCard);
-      closePopup(popupCardImage);
+      const openedPopup = document.querySelector('.popup_opened');
+      closePopup(openedPopup);
     } 
 }
 
-function closeOverlay (evt) {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(popupProfile);
-    closePopup(popupCard);
-    closePopup(popupCardImage);
-  };
+function closeOverlay () { //закрытие на оверлей
+  const popups = Array.from(document.querySelectorAll('.popup'));
+  popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup')) {
+        closePopup(evt.target);
+      };
+    });
+  });
 }
 
-function closeIcon (evt) {
-  if (evt.target.classList.contains('popup__icon')) {
-    closePopup(popupProfile);
-    closePopup(popupCard);
-    closePopup(popupCardImage);
-  };
+function closeIcon () { //закрытие на крестик
+  const closeIcons = Array.from(document.querySelectorAll('.popup__icon'));
+  closeIcons.forEach((icon) => {
+    icon.addEventListener('click', (evt) => {
+      closePopup(evt.target.closest('.popup'));
+    });
+  });
 }
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
-  document.addEventListener('click', closeOverlay);
-  document.addEventListener('keydown', closeEsc);
-  document.addEventListener('click', closeIcon);
+  document.addEventListener('keydown', closeEsc); //обработчик добавляется и удаляется
+  closeIcon(); //обе функции вызываются только при открытии модального окна
+  closeOverlay();
 }
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
-  document.removeEventListener('click', closeOverlay);
   document.removeEventListener('keydown', closeEsc);
-  document.removeEventListener('click', closeIcon);
 }
 
 function openImagePopup(data) {
-  const popupImage = popupCardImage.querySelector('.popup__image');
-  popupCardImage.querySelector('.popup__title').textContent = data.name;
+  popupTitle.textContent = data.name; //поиски элементов вынесены в начало файла
   popupImage.src = data.link;
   popupImage.alt = data.name;
   openPopup(popupCardImage);
