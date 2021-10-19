@@ -99,8 +99,6 @@ function closeIcon () { //закрытие на крестик
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
   document.addEventListener('keydown', closeEsc); //обработчик добавляется и удаляется
-  closeIcon(); //обе функции вызываются только при открытии модального окна
-  closeOverlay();
 }
 
 function closePopup(popupElement) {
@@ -158,4 +156,6 @@ addButton.addEventListener('click', function() {
     openPopup(popupCard);
 });
 
+closeIcon(); //вызов функций закрытия попапов
+closeOverlay();
 enableValidation(validObj);
