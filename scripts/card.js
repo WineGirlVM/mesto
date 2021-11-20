@@ -1,31 +1,6 @@
-export const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
+import { openPopup } from "./utils.js";
 
-export class Card {
+class Card {
     constructor (data, selector) {
         this._selector = selector;
         this.data = data;
@@ -44,15 +19,10 @@ export class Card {
     }
 
     _openImagePopup () {
-        this._popup.querySelector('.popup__image').src = this._element.querySelector('.element__image').src;
-        this._popup.querySelector('.popup__image').alt = this._element.querySelector('.element__title').alt;
-        this._popup.querySelector('.popup__title').textContent = this._element.querySelector('.element__title').textContent;
-        this._popup.classList.add('popup_opened');
-        document.addEventListener('keydown', (evt) => {
-          if (evt.key === 'Escape') {
-            this._popup.classList.remove('popup_opened');
-          } 
-        });
+        this._popup.querySelector('.popup__image').src = this.data.link;
+        this._popup.querySelector('.popup__image').alt = this.data.name;
+        this._popup.querySelector('.popup__title').textContent = this.data.name;
+        openPopup(this._popup);
     }
 
     _setEventListeners () {
@@ -82,5 +52,4 @@ export class Card {
     }
 }
 
-
-  
+export {Card}
