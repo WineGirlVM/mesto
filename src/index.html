@@ -3,12 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./pages/index.css">
         <title>Mesto</title>
     </head>
     <body class="body">
         <header class="header">
-            <img class="header__logo" src="./images/Vector.svg" alt="Логотип">
+            <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Логотип">
         </header>
         <main class="main">
             <section class="popup popup_profile">
@@ -28,9 +27,9 @@
                 <div class="popup__container">
                     <h2 class="popup__title">Новое место</h2>
                     <form class="popup__form popup__form_card" name="SubmitForm" novalidate>
-                        <input type="text" class="popup__input popup__input_info_name-card" id="card-name" placeholder="Название" name="Name"  required minlength="2" maxlength="30" autocomplete="off">
+                        <input type="text" class="popup__input popup__input_info_name" id="card-name" placeholder="Название" name="Name"  required minlength="2" maxlength="30" autocomplete="off">
                         <span class="popup__input-error card-name-error"></span>
-                        <input type="url" class="popup__input popup__input_info_link" id="url" placeholder="Ссылка на картинку" name="About" required>
+                        <input type="url" class="popup__input popup__input_info_about" id="url" placeholder="Ссылка на картинку" name="About" required>
                         <span class="popup__input-error url-error"></span>
                         <button class="popup__button" type="submit">Сохранить</button>
                     </form>
@@ -45,7 +44,7 @@
                 </div>
             </section>
             <section class="profile">
-                <img class="profile__avatar" src="./images/image.jpg" alt="Аватар">
+                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
                 <div class="profile__info-column">
                     <div class="profile__info-row">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -71,10 +70,5 @@
                 </div>
             </div>
         </template>
-        <script type="module" src="./scripts/utils.js"></script>
-        <script type="module" src="./scripts/data.js"></script>
-        <script type="module" src="./scripts/card.js"></script>
-        <script type="module" src="./scripts/formValidator.js"></script>
-        <script type="module" src="./scripts/index.js"></script>
     </body>
 </html>

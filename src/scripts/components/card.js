@@ -1,10 +1,11 @@
-import { openPopup } from "./utils.js";
+//связать с попапом, добавить в конструктор функцию открытия, прописать ее логику через дочерний попап
 
-class Card {
-    constructor (data, selector) {
+export default class Card {
+    constructor (data, selector, handleCardClick) {
         this._selector = selector;
         this.data = data;
         this._popup = document.querySelector('.popup_card-image');
+        this._handleCardClick = handleCardClick;
     }
 
     _getElementTemplate () {
@@ -18,16 +19,9 @@ class Card {
         return this._element;
     }
 
-    _openImagePopup () {
-        this._popup.querySelector('.popup__image').src = this.data.link;
-        this._popup.querySelector('.popup__image').alt = this.data.name;
-        this._popup.querySelector('.popup__title').textContent = this.data.name;
-        openPopup(this._popup);
-    }
-
     _setEventListeners () {
         this._element.querySelector('.element__image').addEventListener('click', () => {
-            this._openImagePopup();
+            this._handleCardClick();
         });
         this._element.querySelector('.element__like').addEventListener('click', () => {
             this._likeClick();
@@ -52,4 +46,3 @@ class Card {
     }
 }
 
-export {Card}

@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
     constructor (data, formSelector) {
         this._data = data;
         this.formSelector = formSelector;
@@ -72,6 +72,7 @@ export class FormValidator {
     enableValidation () {
         this._formElement.addEventListener('submit', function(evt) {
             evt.preventDefault();
+            // this._formElement.reset(); так правильно должно быть
         });
         this._setEventListeners();       
     }
