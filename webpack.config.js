@@ -14,7 +14,7 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    static: path.resolve(__dirname, './dist'),
     open: true,
     compress: true,
     port: 8080
@@ -33,11 +33,9 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, {
             loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
+            // options: {importLoaders: 1},
           },
-          'postcss-loader'
+          'postcss-loader',
         ]
       },
     ]
