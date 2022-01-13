@@ -1,6 +1,7 @@
-import Card from "../components/card.js";
-import PopupWithImage from "../components/popupWithImage.js";
+import Card from "../components/Card.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import {elements, inputNameCard, inputImage} from "./constants.js";
+import { cardPopup, profilePopup, userData } from "../../pages/index.js";
 
 export function popupSubmitHandler (evt) {
     evt.preventDefault();

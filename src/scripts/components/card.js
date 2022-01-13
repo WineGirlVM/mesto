@@ -1,5 +1,3 @@
-//связать с попапом, добавить в конструктор функцию открытия, прописать ее логику через дочерний попап
-
 export default class Card {
     constructor (data, selector, handleCardClick) {
         this._selector = selector;
