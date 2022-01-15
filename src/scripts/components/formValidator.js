@@ -8,8 +8,8 @@ export default class FormValidator {
         this._buttonElement = this._formElement.querySelector(this._data.submitButtonSelector);
     }
 
-    errorRemove () {
-            const errorElements = Array.from(this._formElement.querySelectorAll('.popup__input-error'));  //здесь удаляю текст ошибки
+    removeError () {
+            const errorElements = Array.from(this._formElement.querySelectorAll('.popup__input-error'));  //здесь удаляю текст ошибки - этого селектора нет в this._data - и по заданию СЕДЬМОГО спринта его там не должно быть
             errorElements.forEach((errorElement) => {
                 errorElement.textContent = "";
             });
@@ -47,17 +47,16 @@ export default class FormValidator {
                 return !inputElement.validity.valid;
             })
             if (isActive) {
-                this._buttonElement.classList.add(this._data.inactiveButtonClass);
-                this._buttonElement.disabled = true;
+                this.blockButton();
             } else {
                 this._buttonElement.classList.remove(this._data.inactiveButtonClass);
                 this._buttonElement.disabled = false;
             };
         }
 
-    blockButton (buttonElement) {
-        buttonElement.classList.add(this._data.inactiveButtonClass);
-        buttonElement.disabled = true;
+    blockButton () {
+        this._buttonElement.classList.add(this._data.inactiveButtonClass);
+        this._buttonElement.disabled = true;
     }
         
     _setEventListeners () {
@@ -72,7 +71,6 @@ export default class FormValidator {
     enableValidation () {
         this._formElement.addEventListener('submit', function(evt) {
             evt.preventDefault();
-            // this._formElement.reset(); так правильно должно быть
         });
         this._setEventListeners();       
     }

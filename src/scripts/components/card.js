@@ -2,7 +2,6 @@ export default class Card {
     constructor (data, selector, handleCardClick) {
         this._selector = selector;
         this.data = data;
-        this._popup = document.querySelector('.popup_card-image');
         this._handleCardClick = handleCardClick;
     }
 
@@ -18,10 +17,10 @@ export default class Card {
     }
 
     _setEventListeners () {
-        this._element.querySelector('.element__image').addEventListener('click', () => {
+        this._cardImage.addEventListener('click', () => {
             this._handleCardClick();
         });
-        this._element.querySelector('.element__like').addEventListener('click', () => {
+        this._cardLike.addEventListener('click', () => {
             this._likeClick();
         });
         this._element.querySelector('.element__bin').addEventListener('click', () => {
@@ -30,14 +29,16 @@ export default class Card {
     }
 
     _likeClick () {
-        this._element.querySelector('.element__like').classList.toggle('element__like_active');
+        this._cardLike.classList.toggle('element__like_active');
     }
 
     generate () {
+        this._cardImage = this._element.querySelector('.element__image');
+        this._cardLike = this._element.querySelector('.element__like');
         this._getElementTemplate();
         this._setEventListeners();
-        this._element.querySelector('.element__image').src = this.data.link;
-        this._element.querySelector('.element__image').alt = this.data.name;
+        this._cardImage.src = this.data.link;
+        this._cardImage.alt = this.data.name;
         this._element.querySelector('.element__title').textContent = this.data.name;
 
         return this._element;
