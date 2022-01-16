@@ -70,9 +70,10 @@ addButton.addEventListener('click', function() {
     cardPopup.open();
 });
 
+cardsList.renderItems();
 imagePopup.setEventListeners();
 profilePopup.setEventListeners();
 cardPopup.setEventListeners();
-cardsList.renderItems();
+
 formValidProfile.enableValidation();
 formValidCard.enableValidation();
