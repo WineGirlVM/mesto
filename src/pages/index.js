@@ -13,10 +13,10 @@ import PopupWithImage from '../scripts/components/popupWithImage';
 
 const formValidProfile = new FormValidator(validObj, '.popup__form_profile');
 const formValidCard = new FormValidator(validObj, '.popup__form_card');
-
-const profilePopup = new PopupWithForm('.popup_profile', handlerProfileSubmit);
-const cardPopup = new PopupWithForm('.popup_card', handlerCardSubmit);
-
+const userData = new UserInfo({
+    userNameSelector: '.profile__name',
+    userAboutSelector: '.profile__about',
+});
 const cardsList = new Section({
     items: initialCards,
     renderer: (item) => {
@@ -24,28 +24,22 @@ const cardsList = new Section({
     },
 }, '.elements');
 
-const userData = new UserInfo({
-    userNameSelector: '.profile__name',
-    userAboutSelector: '.profile__about',
-});
-
 const imagePopup = new PopupWithImage('.popup_card-image');
 
-function handlerProfileSubmit (evt) {
-    evt.preventDefault();
-    userData.setUserInfo(inputName.value, inputAbout.value);
+const profilePopup = new PopupWithForm('.popup_profile', (formData) => {
+    userData.setUserInfo(formData); //да чтож ты не работаешь то тварь
     profilePopup.close();
-}
+});
 
-function handlerCardSubmit (evt) {
-    evt.preventDefault();
-    const info = {
-        name: inputNameCard.value,
-        link: inputImage.value,
-    };
-    cardsList.addItem(createCard(info));
+const cardPopup = new PopupWithForm('.popup_card', (formData) => {
+    formData.link = formData.info;
+    cardsList.addItem(createCard(formData));
     cardPopup.close();
-}
+});
+
+
+
+
 
 function createCard(data) {
     const card = new Card(data, '#element-template', () => {
@@ -60,8 +54,8 @@ editButton.addEventListener('click', function() {
     formValidProfile.removeError();
     profilePopup.open();
     const userInfo = userData.getUserInfo();
-    inputName.value = userInfo.userName;
-    inputAbout.value = userInfo.userAbout;
+    inputName.value = userInfo.Name;
+    inputAbout.value = userInfo.Info;
 });
 
 addButton.addEventListener('click', function() {

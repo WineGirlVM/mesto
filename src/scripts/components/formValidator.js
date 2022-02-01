@@ -9,14 +9,9 @@ export default class FormValidator {
     }
 
     removeError () {
-            const errorElements = Array.from(this._formElement.querySelectorAll('.popup__input-error'));  //здесь удаляю текст ошибки - этого селектора нет в this._data - и по заданию СЕДЬМОГО спринта его там не должно быть
-            errorElements.forEach((errorElement) => {
-                errorElement.textContent = "";
-            });
-            const inputList = Array.from(this._formElement.querySelectorAll(this._data.inputSelector));  //здесь удаляю наполнение инпута
-            inputList.forEach((inputElement) => {
+            this._inputList.forEach((inputElement) => {
+                this._hideError(inputElement);
                 inputElement.textContent = "";
-                inputElement.classList.remove(this._data.inputErrorClass);
             });
     }
         
