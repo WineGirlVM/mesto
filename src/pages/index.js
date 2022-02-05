@@ -30,7 +30,8 @@ const profilePopup = new PopupWithForm('.popup_profile', (formData) => {
 });
 
 const cardPopup = new PopupWithForm('.popup_card', (formData) => {
-    formData.link = formData.info;
+    formData.name = formData.Name;
+    formData.link = formData.About;
     cardsList.addItem(createCard(formData));
     cardPopup.close();
 });
