@@ -4,13 +4,13 @@ export default class UserInfo {
         this.info = document.querySelector(userAboutSelector);
     }
 
-    getUserInfo() {
-        const data = {
-            Name: this.name.textContent,
-            Info: this.info.textContent,
-        }
-        return data;
-    }
+    // getUserInfo() {
+    //     const data = {
+    //         Name: this.name.textContent,
+    //         Info: this.info.textContent,
+    //     }
+    //     return data;
+    // }
 
     setUserInfo(formData) {
         this.name.textContent = formData.Name;

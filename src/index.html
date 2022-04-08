@@ -43,14 +43,36 @@
                     <button class="popup__icon" type="button"></button>
                 </div>
             </section>
+            <section class="popup popup_confirm">
+                <div class="popup__container popup__container_confirm">
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <form class="popup__form" name="SubmitForm" novalidate>
+                        <button class="popup__button" type="button">Да</button>
+                    </form>                
+                    <button class="popup__icon" type="button"></button>
+                </div>
+            </section>
+            <section class="popup popup_avatar">
+                <div class="popup__container popup__container_avatar">
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <form class="popup__form popup__form_avatar" name="SubmitForm" novalidate>
+                        <input type="url" class="popup__input popup__input_info_about" id="AvatarUrl" placeholder="Ссылка на картинку" name="About" required>
+                        <span class="popup__input-error AvatarUrl-error"></span>
+                        <button class="popup__button" type="submit">Сохранить</button>
+                    </form>
+                    <button class="popup__icon" type="button"></button>
+                </div>
+            </section>
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+                <div class="profile__avatar">
+                    <img class="profile__avatar" src="" alt="Аватар" id="Avatar">
+                </div>
                 <div class="profile__info-column">
                     <div class="profile__info-row">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name"></h1>
                         <button class="profile__edit-button" type="button"></button>
                     </div>
-                    <p class="profile__about">Исследователь океана</p>
+                    <p class="profile__about"></p>
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
@@ -66,7 +88,10 @@
                 <img class="element__image" src="#" alt="">
                 <div class="element__about">
                     <h3 class="element__title"></h3>
-                    <button class="element__like" type="button"></button>
+                    <div>
+                        <button class="element__like" type="button"></button>
+                        <p class="element__like_number"></p>
+                    </div>
                 </div>
             </div>
         </template>
